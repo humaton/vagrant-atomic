@@ -30,6 +30,12 @@ module VagrantPlugins
         Cap::Docker
       end
 
+      guest_capability("atomic", "rsync_installed") do
+        require_relative "cap/rsync"
+        Cap::RSync
+      end
+
+
       # This sets up our log level to be whatever VAGRANT_LOG is
       # for loggers prepended with 'vagrant_libvirt'
       def self.setup_logging
